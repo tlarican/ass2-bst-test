@@ -327,6 +327,18 @@ void test_philip12(){
   assert(binary.IsEmpty());
 }
 
+void test_tlarican13() {
+    cout << "\n\n* Testing Clear (tlarican)" << endl;
+    BST<string> b1;
+    b1.Add("c");
+    b1.Add("c");
+    b1.Add("b");
+    assert(!(b1.IsEmpty()));
+    b1.Clear();
+    assert(b1.IsEmpty());
+    cout << "Done test_tlarican13" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
