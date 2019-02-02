@@ -465,6 +465,48 @@ void test_dsagredo()
 	cout << "Ending test protocol alpha bravo foxtrot dsagredo" << endl;
 }
 
+void test_tlarican() {
+    cout << "\n\n* Testing Balanced Constructor" << endl;
+    string arr1[6] = {"c", "d", "e", "f", "g", "b"};
+    BST<string> b1(arr1, 6);
+
+    cout << "b1 is: " << endl;
+    cout << b1 << endl;
+
+    TreeVisitor::ResetSS();
+    b1.PreorderTraverse(TreeVisitor::visitor);
+    string result = "dbcfeg";
+    assert(TreeVisitor::GetSS() == result);
+    assert(b1.getHeight() == 3);
+
+    string arr2[15] = {"h", "g", "f", "e", "d", "c", "b", "a", "i", "j", "k",
+                       "l", "m", "n", "o"};
+    BST<string> b2(arr2, 15);
+
+    cout << "b2 is: " << endl;
+    cout << b2 << endl;
+
+    TreeVisitor::ResetSS();
+    b2.PreorderTraverse(TreeVisitor::visitor);
+    result = "hdbacfegljiknmo";
+    assert(TreeVisitor::GetSS() == result);
+    assert(b2.getHeight() == 4);
+
+    string arr3[9] = {"h", "t", "l", "d", "i", "z", "y", "a", "w"};
+    BST<string> b3(arr3, 9);
+
+    cout << "b3 is: " << endl;
+    cout << b3 << endl;
+
+    TreeVisitor::ResetSS();
+    b3.PreorderTraverse(TreeVisitor::visitor);
+    result = "ldahiwtyz";
+    assert(TreeVisitor::GetSS() == result);
+    assert(b3.getHeight() == 4);
+
+    cout << "Done testBalancedConstructor()" << endl;
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -481,4 +523,5 @@ void testBSTAll() {
   test_ravsneha();
   test_Nabu99();
   test_dsagredo();
+  test_tlarican();
 }
